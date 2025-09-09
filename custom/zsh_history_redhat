@@ -1,0 +1,97 @@
+#
+lsblk
+df -h /
+growpart /dev/sda 4
+growpart /dev/sda 5
+xfs_growfs -d /dev/sda4
+xfs_growfs -d /dev/sda5
+#
+cat /etc/hosts
+vi /etc/hosts
+cat /etc/resolv.conf
+vi /etc/resolv.conf
+ls /etc/sysconfig/network-scripts
+cd /etc/sysconfig/network-scripts
+ls /etc/NetworkManager/
+ls /etc/NetworkManager/system-connections
+cd /etc/NetworkManager/
+cd /etc/NetworkManager/system-connections
+systemctl status NetworkManager
+systemctl restart NetworkManager
+nmcli
+nmtui
+#
+dnf repolist
+dnf list --installed
+dnf search tmux
+dnf info tmux
+dnf whatprovide tmux
+#
+ls /etc/zabbix
+systemctl status zabbix-agent
+systemctl enable --now zabbix-agent
+#
+date
+timedatectl
+timedatectl status
+timedatectl set-timezone Asia/Seoul
+#
+systemctl status ntpd
+ntpq -p
+cat /etc/ntp.conf
+vi /etc/ntp.conf
+systemctl status chronyd
+chronyc sources -v
+cat /etc/chrony.conf
+vi /etc/chrony.conf
+#
+systemctl status firewalld
+cd /etc/firewalld/zones
+ls /etc/firewalld/zones
+vi /etc/firewalld/zones/public.xml
+vi /etc/firewalld/zones/trusted.xml
+cat /etc/firewalld/zones/public.xml
+cat /etc/firewalld/zones/trusted.xml
+firewall-cmd --list-all --zone=public
+firewall-cmd --list-all --zone=trusted
+firewall-cmd --list-all --zone=public; firewall-cmd --list-all --zone=trusted
+firewall-cmd --list-all-zones
+firewall-cmd --get-active-zones
+firewall-cmd --reload
+#
+ls /etc/ssh
+ls /etc/ssh/sshd_config.d/
+vi /etc/ssh/sshd_config
+ssh-keygen -A
+restorecon /etc/ssh/ssh_host_*
+systemctl status sshd
+systemctl restart sshd
+#
+cd /etc/zabbix
+vi zabbix_agentd.conf
+systemctl status zabbix-agent
+systemctl restart zabbix-agent
+tail -f /var/log/zabbix/zabbix_agentd.log
+tail -f /var/log/zabbix-agent/zabbix_agentd.log
+#
+getenforce
+sestatus
+sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+cat /etc/selinux/config
+touch /.autorelabel
+#
+htop
+lscpu
+free -h
+mount
+netstat -anp | grep 'LISTEN '
+ps auxf
+lsblk
+df -h /
+#
+poweroff
+reboot
+id
+whoami
+uptime
+last -F

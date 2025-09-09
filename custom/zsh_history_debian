@@ -1,0 +1,88 @@
+#
+growpart /dev/sda 1
+resize2fs /dev/sda1
+lsblk
+df -h /
+#
+cat /etc/hosts
+vi /etc/hosts
+cat /etc/resolv.conf
+vi /etc/resolv.conf
+ls /etc/netplan
+cd /etc/netplan
+cat /etc/netplan/network.yaml
+vi /etc/netplan/network.yaml
+vi network.yaml
+netplan apply
+#
+apt list --installed
+apt search zabbix-agent
+apt info tmux
+apt update
+apt-file update
+apt-file search tmux
+#
+ls /etc/zabbix
+systemctl status zabbix-agent
+systemctl enable --now zabbix-agent
+#
+date
+timedatectl
+timedatectl status
+timedatectl set-timezone Asia/Seoul
+#
+systemctl status ntpd
+ntpq -p
+cat /etc/ntp.conf
+vi /etc/ntp.conf
+systemctl status chronyd
+chronyc sources -v
+cat /etc/chrony.conf
+vi /etc/chrony.conf
+#
+systemctl status ufw
+ufw allow from 172.16.0.0/12 comment "Docker Internal"
+ufw status numbered
+ufw enable
+ufw disable
+#
+ls /etc/ssh
+ls /etc/ssh/sshd_config.d/
+vi /etc/ssh/sshd_config
+dpkg-reconfigure openssh-server
+systemctl status ssh.service
+systemctl restart ssh.service
+#
+cd /etc/zabbix
+vi zabbix_agentd.conf
+systemctl status zabbix-agent
+systemctl restart zabbix-agent
+tail -f /var/log/zabbix/zabbix_agentd.log
+tail -f /var/log/zabbix-agent/zabbix_agentd.log
+#
+systemctl enable --now docker.socket docker.service;
+systemctl status docker.service
+docker compose up -d
+docker compose down
+docker ps -a
+docker volume ls
+docker network ls
+cd /var/lib/docker/volumes/
+cat /etc/ufw/after.rules
+vi /etc/ufw/after.rules
+#
+htop
+lscpu
+free -h
+mount
+netstat -anp | grep 'LISTEN '
+ps auxf
+lsblk
+df -h /
+#
+poweroff
+reboot
+id
+whoami
+uptime
+last -F
