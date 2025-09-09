@@ -38,3 +38,18 @@ echo 2016000727 > /etc/tag2
 위와 같이 설정하면, 프롬프트가 다음과 같이 바뀝니다.
 
 ![](dallas-theme-modified-02.png)
+
+## 유용한 History
+
+Oh My Zsh는 `~/.zsh_history` 파일을 참조하여 커맨드를 추천합니다.
+
+bash 를 사용하신다면, 다음 명령어를 통해 history를 이어 받아 명령어를 추천받을 수 있습니다.
+
+```sh
+cp ~/.bash_history ~/.zsh_history
+```
+
+만약 OS를 처음 설치하였다면, history 파일의 내용이 없습니다. 커맨드를 추천받을 수 있도록 예제를 넣어주면 편리하게 사용할 수 있습니다.
+
+* [zsh_history_debian](/custom/zsh_history_debian)
+* [zsh_history_redhat](/custom/zsh_history_redhat)
